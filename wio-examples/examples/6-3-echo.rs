@@ -48,7 +48,10 @@ fn main() -> ! {
     writeln!(&mut serial, "this is {} example!", "UART").unwrap();
 
     loop {
-        // TODO: 受信したデータをそのまま送信する
-        
+        loop {
+            if let Ok(c) = nb::block!(serial.read()) {
+                nb::block!(serial.write(c)).unwrap();
+            }
+        }
     }
 }
