@@ -27,12 +27,31 @@ use wio::{entry, Pins, Sets};
 fn main() -> ! {
     let mut peripherals = Peripherals::take().unwrap();
     // クロックを初期化する
+    let mut clocks = GenericClockController::with_external_32kosc(
+        peripherals.GCLK,
+        &mut peripherals.MCLK,
+        &mut peripherals.OSC32KCTRL,
+        &mut peripherals.OSCCTRL,
+        &mut peripherals.NVMCTRL,
+    );
 
-    // TODO: UARTドライバオブジェクトを初期化する
+    // UARTドライバオブジェクトを初期化する
+    let mut sets: Sets = Pins::new(peripherals.PORT).split();
+    let mut serial = sets.uart.init(
+        &mut clocks,
+        115200.hz(),
+        peripherals.SERCOM2,
+        &mut peripherals.MCLK,
+        &mut sets.port,
+    );
 
-    // TODO: 「hello world」と出力する
+    // 「hello world」と出力する
+    for c in b"hello world\n".iter() {
+        nb::block!(serial.write(*c)).unwrap();
+    }
 
-    // TODO: 「this is UART example!」と出力する
+    // 「this is UART example!」と出力する
+    writeln!(&mut serial, "this is {} example!", "UART").unwrap();
 
     loop {}
 }
