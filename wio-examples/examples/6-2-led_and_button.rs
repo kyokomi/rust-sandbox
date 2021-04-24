@@ -14,8 +14,7 @@ use panic_halt as _;
 use wio_terminal as wio;
 
 use wio::entry;
-use wio::hal::gpio::*;
-// GPIOの構造体やトレイトをimportする
+use wio::hal::gpio::*; // GPIOの構造体やトレイトをimportする
 use wio::pac::Peripherals;
 use wio::prelude::*; // 主要な構造体やトレイトをインポートする
 
