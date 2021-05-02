@@ -25,7 +25,10 @@ impl Rectangle {
     }
 
     fn square(size: u32) -> Rectangle {
-        Rectangle { width: size, height: size }
+        Rectangle {
+            width: size,
+            height: size,
+        }
     }
 }
 
@@ -56,9 +59,18 @@ fn main() {
 
     // let width1 = 30;
     // let height1 = 50;
-    let rect1 = Rectangle { width: 30, height: 50 };
-    let rect2 = Rectangle { width: 10, height: 40 };
-    let rect3 = Rectangle { width: 60, height: 45 };
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+    let rect2 = Rectangle {
+        width: 10,
+        height: 40,
+    };
+    let rect3 = Rectangle {
+        width: 60,
+        height: 45,
+    };
     let rect4 = Rectangle::square(3);
 
     println!(
@@ -83,6 +95,8 @@ fn build_user(email: String, username: String) -> User {
 }
 
 fn println_user(user: &User) {
-    println!("{} {} {} {}",
-             user.username, user.email, user.sign_in_count, user.active);
+    println!(
+        "{} {} {} {}",
+        user.username, user.email, user.sign_in_count, user.active
+    );
 }

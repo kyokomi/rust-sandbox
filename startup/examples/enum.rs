@@ -1,5 +1,5 @@
-use std::net::{Ipv4Addr, Ipv6Addr};
 use crate::Message::ChangeColor;
+use std::net::{Ipv4Addr, Ipv6Addr};
 
 #[derive(Debug)]
 enum IpAddrKind {

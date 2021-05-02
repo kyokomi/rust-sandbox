@@ -23,7 +23,10 @@ fn main() {
     let product = 4 * 30;
     let quotient = 56.7 / 32.2;
     let remainder = 43 % 5;
-    println!("{} {} {} {} {}", sum, difference, product, quotient, remainder);
+    println!(
+        "{} {} {} {} {}",
+        sum, difference, product, quotient, remainder
+    );
 
     // 論理値型
     let t = true;
@@ -45,8 +48,20 @@ fn main() {
     // 配列型
     let a = [1, 2, 3, 4, 5];
     println!("{} {} {}", a[0], a[1], a[2]);
-    let months = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
+    let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
     println!("{} {} {}", months[0], months[1], months[2]);
 
     // error
