@@ -1,4 +1,4 @@
-extern crate adder;
+extern crate a5b356bf40b6228103daadbd0c102f4af as adder;
 
 mod common;
 
